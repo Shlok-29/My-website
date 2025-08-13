@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | SHLOK DUBEY</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0a0a0a;
+      color: white;
+    }
+    header {
+      background-color: #1e90ff;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .contact-section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    }
+    .contact-section h2 {
+      text-align: center;
+      color: #00bfff;
+      margin-bottom: 20px;
+    }
+    .contact-section p {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+    }
+    .social-links a {
+      color: #00bfff;
+      font-size: 1.8rem;
+      transition: transform 0.3s ease;
+    }
+    .social-links a:hover {
+      transform: scale(1.2);
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1rem;
+    }
+    input:focus, textarea:focus {
+      outline: 2px solid #1e90ff;
+    }
+    button {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background-color: #1e90ff;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00bfff;
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">SD</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="people.html">My People</a>
+      <a href="gallery.html">Gallery</a>
+    </nav>
+  </header>
+
+  <div class="contact-section">
+    <h2>Contact Me</h2>
+    <p>Want to connect or collaborate? I'd love to hear from you!</p>
+
+    <form action="https://formsubmit.co/shlokdubey2903@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://SHLOKDUBEY.com/thankyou.html">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+      
+    <div class="social-links">
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://snapchat.com" target="_blank"><i class="fab fa-snapchat-ghost"></i></a>
+    </div>
+  </div>
+</body>
+</html>

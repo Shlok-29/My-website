@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1e90ff" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <title>SHLOK DUBEY | Personal Website</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0d0d0d;
+      color: #ffffff;
+      scroll-behavior: smooth;
+    }
+    header {
+      background-color: #1e90ff;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #1e90ff;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        text-align: center;
+      }
+      nav.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .hero {
+      text-align: center;
+      padding-top: 80px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      color: #00bfff;
+    }
+    .quote {
+      font-style: italic;
+      font-size: 1.3rem;
+      margin-top: 15px;
+      color: #a8dfff;
+    }
+
+    .about-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .about-section h2 {
+      font-size: 2rem;
+      color: #00bfff;
+    }
+
+    .about-image-centered {
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-image-centered img {
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #1e90ff;
+      box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .about-image-centered img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(30, 144, 255, 0.8), 0 0 40px rgba(0, 191, 255, 0.7);
+    }
+
+    .about-text-centered {
+      max-width: 700px;
+      padding: 0 15px;
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    .about-text-centered ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 15px;
+    }
+
+    .about-text-centered li {
+      margin: 8px 0;
+      text-align: left;
+    }
+
+    @media (max-width: 768px) {
+      .about-text-centered {
+        text-align: center;
+      }
+      .about-text-centered li {
+        text-align: center;
+      }
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 40px;
+      margin: 40px 0;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .glass-card h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .gallery {
+      text-align: center;
+    }
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+    }
+    .carousel img {
+      width: 250px;
+      height: auto;
+      border-radius: 10px;
+      margin: 10px;
+      scroll-snap-align: center;
+      flex-shrink: 0;
+    }
+
+    .favorites-image1 {
+      width: 230px;
+      height: 310px;
+      border-radius: 20px;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(255, 99, 132, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .favorites-image2 {
+      width: 210px;
+      height: 290px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(0, 255, 127, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .favorites-image3 {
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      border-radius: 12px;
+      object-fit: contain;
+      box-shadow: 0 0 10px rgba(30, 144, 255, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .favorites-image1:hover,
+    .favorites-image2:hover,
+    .favorites-image3:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #1e90ff;
+      padding: 1rem;
+      text-align: center;
+    }
+    .socials a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.5rem;
+    }
+    .typed {
+      display: inline;
+      color: #00bfff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">SD</div>
+    <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    <nav id="navbar">
+      <a href="#about">About</a>
+      <a href="#favorites">Favorites</a>
+      <a href="people.html">My People</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Hello, I'm <span class="typed"></span></h1>
+    <p class="quote">"Dream big. Work smart. Stay kind."</p>
+  </section>
+
+  <section id="about" class="glass-card about-section">
+    <h2>About Me</h2>
+
+    <div class="about-image-centered">
+      <img src="images/ME/1.jpg" alt="Shlok Dubey"/>
+    </div>
+
+    <div class="about-text-centered">
+      <p>
+        I'm a passionate soul with dreams larger than the sky. I love exploring new things,
+        diving deep into tech, enjoying long conversations with friends, and finding happiness in the little things.
+        I'm someone who values empathy, creativity, and determination. My journey is all about learning, growing,
+        and inspiring others. I enjoy anchoring events, solving problems with code, and spreading good vibes!
+      </p>
+      <br>
+      <ul>
+        <li><strong>Qualities:</strong> Creative, Kind, Focused, Curious, Honest, Joyful</li>
+        <li><strong>Passions:</strong> Coding, Writing, Music, Anchoring, Exploring</li>
+        <li><strong>Dreams:</strong> To build something meaningful and inspire people 🌟</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="favorites" class="glass-card">
+    <h2>My Favorites</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="about-text">
+      <ul>
+        <li><strong>Food:</strong> Pizza, Biryani, Momos</li>
+        <li><strong>Drinks:</strong> Mojito, Cold Coffee</li>
+        <li><strong>Places:</strong> Manali, Goa, My Bedroom 😊</li>
+        <li><strong>Games:</strong> Minecraft, BGMI, Among Us</li>
+      </ul>
+    </div>
+    <div class="about-list">
+    </div>
+  </section>
+
+  <section class="gallery">
+    <h2>Image Highlights</h2>
+    <p>Here are some of my favorite pictures </p>
+    <br>
+    <div class="carousel">
+      <a href="college.html"><img src="images/ME/5.jpg" alt="Fav Moment 1" class="favorites-image1" /></a>
+      <a href="college.html"><img src="images/ME/4.jpg" alt="Fav Moment 2" class="favorites-image2" /></a>
+      <a href="college.html"><img src="images/ME/3.jpg" alt="Fav Moment 3" class="favorites-image3" /></a>
+    </div>
+  </section>
+
+  <footer>
+    <p>Connect with me</p>
+    <div class="socials">
+      <a href="https://www.instagram.com/shlokkkk_0_0?igsh=eWlvZTEwcmt3YWZr" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/shlok-dubey-b5027528a" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.snapchat.com/add/shhllokk" target="_blank"><i class="fab fa-snapchat"></i></a>
+    </div>
+    <p>&copy; 2025 SHLOK DUBEY</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script>
+    var typed = new Typed('.typed', {
+      strings: ["SHLOK DUBEY", "a Dreamer", "a Coder", "a Creator"],
+      typeSpeed: 60,
+      backSpeed: 40,
+      loop: true
+    });
+
+    function toggleMenu() {
+      document.getElementById("navbar").classList.toggle("active");
+    }
+  </script>
+</body>
+</html>

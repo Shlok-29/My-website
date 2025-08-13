@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1e90ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Welcome | SHLOK DUBEY</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #000814, #001f3f);
+      overflow: auto;
+    }
+    .container {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: #ffffff;
+      text-align: center;
+      padding: 20px;
+    }
+    .name {
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #00bfff;
+    }
+    .quote {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin: 20px 0;
+      max-width: 700px;
+      color: #aee1f9;
+    }
+    .enter-btn {
+      padding: 14px 30px;
+      font-size: 1.1rem;
+      color: #fff;
+      background-color: #1e90ff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .enter-btn:hover {
+      background-color: #00bfff;
+    }
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('https://i.ibb.co/r4H5g4m/stars.gif') repeat;
+      z-index: -1;
+      opacity: 0.15;
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="container">
+    <div class="name">SHLOK DUBEY</div>
+    <div class="quote">“Dream big. Stay humble. Be unstoppable.”</div>
+    <a href="home.html"><button class="enter-btn">Enter Website</button></a>
+  </div>
+</body>
+</html>

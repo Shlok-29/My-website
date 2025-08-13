@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Family Album | SHLOK</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    body {
+      background: #0a0a0a;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      padding: 20px;
+    }
+    h1 {
+      color: #1e90ff;
+      text-align: center;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .grid img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      cursor: pointer;
+    }
+
+    /* Lightbox styles */
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      flex-direction: column;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(30,144,255,0.7);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      color: #00bfff;
+      cursor: pointer;
+    }
+
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 50px;
+      color: #00bfff;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .nav-left {
+      left: 20px;
+    }
+
+    .nav-right {
+      right: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Family ❤️</h1>
+
+  <div class="grid" id="gallery">
+    <img src="images/Family/17.jpg" alt="">
+    <img src="images/Family/18.jpg" alt="">
+    <img src="images/Family/19.jpg" alt="">
+    <img src="images/Family/20.jpg" alt="">
+    <img src="images/Family/21.jpg" alt="">
+    <img src="images/Family/22.jpg" alt="">
+    <img src="images/Family/23.jpg" alt="">
+    <img src="images/Family/24.jpg" alt="">
+    <img src="images/Family/25.jpg" alt="">
+    <img src="images/Family/26.jpg" alt="">
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <span class="close-btn" onclick="closeLightbox()">×</span>
+    <span class="nav-arrow nav-left" onclick="navigate(-1)">&#10094;</span>
+    <img id="lightbox-img" src="" alt="Large View">
+    <span class="nav-arrow nav-right" onclick="navigate(1)">&#10095;</span>
+  </div>
+
+  <script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const galleryImages = document.querySelectorAll(".grid img");
+    let currentIndex = 0;
+
+    galleryImages.forEach((img, index) => {
+      img.addEventListener("click", () => {
+        currentIndex = index;
+        showLightbox(img.src);
+      });
+    });
+
+    function showLightbox(src) {
+      lightbox.style.display = "flex";
+      lightboxImg.src = src;
+    }
+
+    function closeLightbox() {
+      lightbox.style.display = "none";
+    }
+
+    function navigate(direction) {
+      currentIndex += direction;
+      if (currentIndex < 0) currentIndex = galleryImages.length - 1;
+      if (currentIndex >= galleryImages.length) currentIndex = 0;
+      lightboxImg.src = galleryImages[currentIndex].src;
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") navigate(-1);
+      if (e.key === "ArrowRight") navigate(1);
+    });
+  </script>
+</body>
+</html>
